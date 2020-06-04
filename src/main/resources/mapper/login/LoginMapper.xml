@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hjj.server.login.mapper.LoginMapper">
+
+    <resultMap id="baseMap" type="com.hjj.server.login.model.Account">
+        <id column="id" property="id"/>
+        <result column="account_number" property="accountNumber"/>
+        <result column="account_username" property="accountUsername"/>
+        <result column="account_password" property="accountPassword"/>
+    </resultMap>
+    <insert id="register">
+        insert into Account (account_number,account_username,account_password)
+        values (#{accountNumber},#{accountUsername},#{accountPassword})
+    </insert>
+    <select id="login" resultMap="baseMap">
+        select id,account_number,account_username,account_password
+        from Account
+        where account_number = #{accountNumber} and account_password = #{accountPassword}
+    </select>
+</mapper>

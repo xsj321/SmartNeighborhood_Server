@@ -1,0 +1,30 @@
+server:
+  port: 8086
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://101.37.86.133/IntelligentAgriculture?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: xsj08262334910
+  druid:
+    initialSize: 1
+    minIdle: 1
+    maxActive: 20
+    maxWait: 60000
+    validationQuery: select 'x' from dual
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    filters: stat,slf4j
+
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+logging:
+  level:
+    com.hjj.server.*.mapper: debug
+    com.hjj.server: debug
