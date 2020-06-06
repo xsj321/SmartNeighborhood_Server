@@ -1,0 +1,9 @@
+package com.hjj.server.home.mapper;
+
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface HomeMapper {
+    boolean isAnyCoverWrong();
+
+}

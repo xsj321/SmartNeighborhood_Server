@@ -1,4 +1,4 @@
-package com.hjj.server.login.util;
+package com.hjj.server.util;
 
 
 import io.swagger.annotations.ApiModel;
@@ -14,6 +14,8 @@ public class ResponseVo<T> {
 
     @ApiModelProperty(value = "数据")
     private T data;
+    @ApiModelProperty(value = "返回表数据")
+    private T respond;
 
     /**
      * 返回消息
@@ -105,4 +107,11 @@ public class ResponseVo<T> {
         this.code = code;
     }
 
+    public T getRespond() {
+        return respond;
+    }
+
+    public void setRespond(T respond) {
+        this.respond = respond;
+    }
 }

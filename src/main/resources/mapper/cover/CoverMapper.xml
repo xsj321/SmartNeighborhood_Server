@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hjj.server.cover.mapper.CoverMapper">
+
+    <resultMap id="baseMap" type="com.hjj.server.cover.model.Cover">
+        <id column="id" property="id"/>
+        <result column="address" property="place"/>
+        <result column="status_str" property="waring"/>
+    </resultMap>
+    <select id="getCoverDetailListw" resultMap="baseMap">
+        select address,
+               case
+                   when status = 0 then false
+                   when status = 1 then true
+               end status_str,
+               id
+        from cover_status
+        <if test="place != 'null'">
+            where address like  concat('%',#{place},'%')
+        </if>
+    </select>
+    <select id="getCoverWaringListw" resultMap="baseMap">
+        select address,
+               case
+                   when status = 0 then false
+                   when status = 1 then true
+                   end status_str,
+               id
+        from cover_status where status = 1
+    </select>
+</mapper>

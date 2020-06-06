@@ -2,8 +2,8 @@ package com.hjj.server.login.controller;
 
 import com.hjj.server.login.model.Account;
 import com.hjj.server.login.service.LoginService;
-import com.hjj.server.login.util.ErrorCode;
-import com.hjj.server.login.util.ResponseVo;
+import com.hjj.server.util.ErrorCode;
+import com.hjj.server.util.ResponseVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.math.BigDecimal;
 
 @Api("login")
 @RestController

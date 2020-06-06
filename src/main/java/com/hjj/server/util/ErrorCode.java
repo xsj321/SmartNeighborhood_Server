@@ -1,4 +1,4 @@
-package com.hjj.server.login.util;
+package com.hjj.server.util;
 
 /**
  * created 2017/7/11
