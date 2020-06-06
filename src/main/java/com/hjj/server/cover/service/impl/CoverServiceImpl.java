@@ -18,10 +18,10 @@ public class CoverServiceImpl implements CoverService {
     @Override
     public ResponseVo getCover(Cover cover) {
         ResponseVo responseVo = ResponseVo.buildSuccessInstance();
-        List<Cover>  coverDetailList = coverMapper.getCoverDetailListw(cover);
+        List<Cover>  coverDetailList = coverMapper.getCoverDetailList(cover);
         cover.setDetail(coverDetailList);
         cover.setWaring(true);
-        List<Cover> coverWaringList = coverMapper.getCoverWaringListw();
+        List<Cover> coverWaringList = coverMapper.getCoverWaringList();
         if (coverWaringList != null){
             cover.setWaring_list(coverWaringList);
         }

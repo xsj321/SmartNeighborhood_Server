@@ -7,8 +7,8 @@ import java.util.List;
 
 @Mapper
 public interface CoverMapper {
-    List<Cover> getCoverDetailListw(Cover cover);
+    List<Cover> getCoverDetailList(Cover cover);
 
-    List<Cover> getCoverWaringListw();
+    List<Cover> getCoverWaringList();
 
 }

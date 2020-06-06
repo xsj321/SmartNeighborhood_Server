@@ -22,6 +22,11 @@ public class Cover {
     @ApiModelProperty("详情列表")
     private List<Cover> detail;
 
+    /**
+     * 生成返回数据格式
+     * @param cover 井盖对象
+     * @return 返回的数据
+     */
     public Map<String,Object> makeRes(Cover cover){
         Map<String,Object> resMap = new HashMap<>();
         resMap.put("cover",new Object(){

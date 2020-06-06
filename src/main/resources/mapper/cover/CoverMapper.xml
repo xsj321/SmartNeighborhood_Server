@@ -9,7 +9,7 @@
         <result column="address" property="place"/>
         <result column="status_str" property="waring"/>
     </resultMap>
-    <select id="getCoverDetailListw" resultMap="baseMap">
+    <select id="getCoverDetailList" resultMap="baseMap">
         select address,
                case
                    when status = 0 then false
@@ -21,7 +21,7 @@
             where address like  concat('%',#{place},'%')
         </if>
     </select>
-    <select id="getCoverWaringListw" resultMap="baseMap">
+    <select id="getCoverWaringList" resultMap="baseMap">
         select address,
                case
                    when status = 0 then false
