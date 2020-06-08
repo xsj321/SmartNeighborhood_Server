@@ -29,4 +29,15 @@ public class ImportantServiceImpl implements ImportantService {
         responseVo.setRespond(important.makeRes(important));
         return responseVo;
     }
+
+    @Override
+    public ResponseVo fixImportant(Important important) {
+        ResponseVo responseVo = ResponseVo.buildFailInstance();
+        int res = importantMapper.upFixImportantStatus(important);
+        if (res == 1){
+            return responseVo.buildSuccessInstance();
+        }else {
+            return responseVo;
+        }
+    }
 }

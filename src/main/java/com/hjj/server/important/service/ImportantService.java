@@ -5,4 +5,6 @@ import com.hjj.server.util.ResponseVo;
 
 public interface ImportantService {
     ResponseVo getImportant(Important important);
+
+    ResponseVo fixImportant(Important important);
 }

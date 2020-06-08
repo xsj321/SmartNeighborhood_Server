@@ -1,10 +1,8 @@
-package com.hjj.server.important.controller;
+package com.hjj.server.patrol.controller;
 
-
-import com.hjj.server.cover.model.Cover;
 import com.hjj.server.important.model.Important;
-import com.hjj.server.important.service.ImportantService;
-import com.hjj.server.login.model.Account;
+import com.hjj.server.patrol.model.Patrol;
+import com.hjj.server.patrol.service.PatrolService;
 import com.hjj.server.util.ErrorCode;
 import com.hjj.server.util.ResponseVo;
 import io.swagger.annotations.Api;
@@ -15,45 +13,27 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api("important")
+@Api("patrol")
 @RestController
-@RequestMapping("importantController")
-public class ImportantController {
+@RequestMapping("patrolController")
+public class PatrolController {
 
     @Autowired
-    ImportantService service;
+    PatrolService service;
 
-    /**
-     * 查询重要地点列表
-     * @param important 查询条件
-     * @return 重要地点列表
-     */
+
     @ApiModelProperty(value = "查询重要地点列表",notes = "查询重要地点列表")
     @PostMapping("getImportant")
-    public ResponseVo getImportant(@RequestBody Important important){
+    public ResponseVo getImportant(@RequestBody Patrol patrol){
         ResponseVo res = new ResponseVo();
         try {
-            res = service.getImportant(important);
+            res = service.getPatrol(patrol);
         }catch (Exception e){
             res.setCode(ErrorCode.SERVER_EXCEPTION_CODE);
             res.setSuccess(false);
             res.setMsg(ResponseVo.LOGIN_ERROR);
             //打印异常
             e.printStackTrace();
-        }
-        return res;
-    }
-
-
-    @ApiModelProperty(value = "修复重要场所",notes = "修复重要场所")
-    @PostMapping("fixImportant")
-    public ResponseVo fixImportant(@RequestBody Important important){
-        ResponseVo res = ResponseVo.buildFailInstance();
-        try {
-            res = service.fixImportant(important);
-        }catch (Exception e){
-            e.printStackTrace();
-            res.setMsg("系统错误");
         }
         return res;
     }

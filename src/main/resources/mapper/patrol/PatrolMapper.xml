@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hjj.server.patrol.mapper.PatrolMapper">
+
+    <resultMap id="baseMap" type="com.hjj.server.patrol.model.Patrol">
+        <id column="id" property="id"/>
+        <result column="worker" property="work_name"/>
+        <result column="worker_id" property="worker_id"/>
+        <result column="date" property="date"/>
+        <result column="path" property="track"/>
+    </resultMap>
+
+    <select id="getPatrolList" resultMap="baseMap">
+        select
+            id,
+            worker,
+            worker_id,
+            date,
+            path
+        from patrol_path
+        <if test="work_name != 'null'">
+            where worker like #{work_name}
+        </if>
+         order by date
+    </select>
+</mapper>

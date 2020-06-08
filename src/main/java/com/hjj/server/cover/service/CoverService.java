@@ -5,4 +5,6 @@ import com.hjj.server.util.ResponseVo;
 
 public interface CoverService {
     ResponseVo getCover(Cover cover);
+
+    ResponseVo fixCover(Cover cover);
 }

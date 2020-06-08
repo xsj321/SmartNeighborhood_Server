@@ -12,4 +12,6 @@ public interface ImportantMapper {
     List<Important> getImportantWaringList();
 
 
+    int upFixImportantStatus(Important important);
+
 }

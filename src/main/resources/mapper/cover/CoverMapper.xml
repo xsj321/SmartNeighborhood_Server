@@ -9,6 +9,11 @@
         <result column="address" property="place"/>
         <result column="status_str" property="waring"/>
     </resultMap>
+    <update id="upFixCoverStatus">
+        update cover_status
+        set status = 0
+        where id = #{id}
+    </update>
     <select id="getCoverDetailList" resultMap="baseMap">
         select address,
                case
@@ -21,6 +26,7 @@
             where address like  concat('%',#{place},'%')
         </if>
     </select>
+
     <select id="getCoverWaringList" resultMap="baseMap">
         select address,
                case

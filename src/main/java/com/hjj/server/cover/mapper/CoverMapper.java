@@ -11,4 +11,5 @@ public interface CoverMapper {
 
     List<Cover> getCoverWaringList();
 
+    int upFixCoverStatus(Cover cover);
 }

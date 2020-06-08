@@ -12,6 +12,11 @@
         <result column="ash" property="air"/>
         <result column="status" property="waring"/>
     </resultMap>
+    <update id="upFixImportantStatus">
+        update important_status
+        set status = 0
+        where id = #{id}
+    </update>
     <select id="getImportantDetailList" resultMap="baseMap">
         select
             id,
