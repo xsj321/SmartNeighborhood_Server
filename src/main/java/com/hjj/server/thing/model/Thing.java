@@ -1,6 +1,8 @@
 package com.hjj.server.thing.model;
 
 import com.hjj.server.thing.service.ThingFunc;
+import com.hjj.server.thing.service.ThingService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
@@ -8,6 +10,10 @@ import java.util.Map;
 
 
 public class Thing implements Serializable {
+
+    @Autowired
+    ThingService service;
+
     private String thingName;
     private String thingID;
     private String thingType;

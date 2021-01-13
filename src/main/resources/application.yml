@@ -18,7 +18,15 @@ spring:
     testOnBorrow: false
     testOnReturn: false
     filters: stat,slf4j
-
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 3
+    pool:
+      minIdle: 1
+      maxIdle: 10
+      maxWait: 3
+      maxActive: 8
 
 mybatis:
   mapper-locations: classpath:mapper/**/*Mapper.xml

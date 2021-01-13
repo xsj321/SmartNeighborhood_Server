@@ -2,6 +2,8 @@ package com.hjj.server.thing.model;
 
 import com.hjj.server.thing.service.ThingFunc;
 import lombok.Data;
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
