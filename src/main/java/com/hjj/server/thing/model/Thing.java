@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -18,7 +19,7 @@ public class Thing implements Serializable {
     private String thingID;
     private String thingType;
     private String thingInfo;
-    private Map<String, ThingComponent> thingComponents;
+    private Map<String, ThingComponent> thingComponents = new HashMap<String,ThingComponent>();
 
     public  Thing(String thingName, String thingID, String thingType, String thingInfo) {
         this.thingName = thingName;
@@ -30,6 +31,7 @@ public class Thing implements Serializable {
     public void registerThingComponent(String componentName,String info,ThingComponentType type)
     {
         ThingComponent theNewComponent = new ThingComponent(componentName,info);
+        System.out.println(componentName);
         switch (type){
             case INT:
                 theNewComponent.setCall(new ThingFunc() {

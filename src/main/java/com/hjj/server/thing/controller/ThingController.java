@@ -2,6 +2,7 @@ package com.hjj.server.thing.controller;
 
 import com.hjj.server.cover.model.Cover;
 import com.hjj.server.thing.model.Thing;
+import com.hjj.server.thing.model.ThingOV;
 import com.hjj.server.thing.model.ThingParam;
 import com.hjj.server.thing.service.ThingService;
 import com.hjj.server.util.ResponseVo;
@@ -26,11 +27,10 @@ public class ThingController {
      */
     @ApiModelProperty(value = "创建物",notes = "创建物")
     @PostMapping("createThing")
-    public ResponseVo createThing(){
+    public ResponseVo createThing(@RequestBody ThingOV thingOV){
         ResponseVo res = ResponseVo.buildFailInstance();
         try {
-            Thing thing = new Thing("xsj321", "11", "Make", "mon");
-            service.saveThing(thing);
+            res = service.createThing(thingOV);
         }catch (Exception e){
             e.printStackTrace();
             res.setMsg("系统错误");

@@ -15,6 +15,7 @@ public class ThingComponent implements Serializable {
     private String info;
     private String id;
     private String registerTime;
+    private ThingComponentType type;
     private ThingFunc call;
     public ThingComponent(String name, String info){
         this.name = name;
