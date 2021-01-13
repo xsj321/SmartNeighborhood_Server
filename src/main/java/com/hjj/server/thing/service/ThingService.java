@@ -7,7 +7,7 @@ import com.hjj.server.thing.model.ThingParam;
 import com.hjj.server.util.ResponseVo;
 
 public interface ThingService {
-    ResponseVo saveThing(Thing thing);
+    ResponseVo saveThing(ThingOV thingOV);
     ResponseVo deleteThing(String id);
     ResponseVo createThing(ThingOV thingOV);
     Thing loadThing(String id);

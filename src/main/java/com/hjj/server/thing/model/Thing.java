@@ -53,4 +53,12 @@ public class Thing implements Serializable {
         thingComponents.put(componentName,theNewComponent);
     }
 
+    @Override
+    public String toString() {
+        return
+                "name: " + thingName+"\n"+
+                "id: " + thingID+"\n"+
+                "type: " + thingType+"\n"+
+                "info: " + thingInfo+"\n";
+    }
 }
